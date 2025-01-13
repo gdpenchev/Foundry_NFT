@@ -97,3 +97,19 @@ MTYwIDE1MS42YTggOCAwIDAgMCA4IDguNGg0OC4xYzQuMiAwIDcuOC0zLjIgOC4xLTcuNCAzLjct
 NDkuNSA0NS4zLTg4LjYgOTUuOC04OC42czkyIDM5LjEgOTUuOCA4OC42Yy4zIDQuMiAzLjkgNy40
 IDguMSA3LjRINjY0YTggOCAwIDAgMCA4LTguNEM2NjcuNiA2MDAuMyA1OTcuNSA1MzMgNTEyIDUz
 M3ptMTI4LTExMmE0OCA0OCAwIDEgMCA5NiAwIDQ4IDQ4IDAgMSAwLTk2IDB6IiAvPg0KPC9zdmc+
+
+
+for testing on Anvile:
+
+run anvil chain: make anvil
+add anvil network in Metamask info is in the make anvil logs
+run make deployMood: which is actually the scripts forge script script/DeployMoodNft.s.sol:DeployMoodNft
+Metamask we can add account with amounts taking the private key from the anvil chain when we run the make anvil command.
+we get the private key from the settings from the Metamask
+we call functions via command:
+cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "mintNft()" --private-key ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 
+
+0x5FbDB2315678afecb367f032d93F642f64180aa3 - is the address from the deployed script
+ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 - the private key of the account in metamask
+
+cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "flipMood(uint256)" 0 --private-key ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 - how to pass args when calling the function
